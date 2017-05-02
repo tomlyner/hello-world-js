@@ -12,6 +12,8 @@
     "security-check": "nsp check"
   },
   "devDependencies": {
-    "nsp": "^2.6.3"
+    "express": "^4.15.2",
+    "nsp": "^2.6.3",
+    "open": "0.0.5"
   }
 }
