@@ -1,0 +1,17 @@
+{
+  "name": "hello-world-js",
+  "version": "1.0.0",
+  "description": "Hello world tester thingy",
+  "author": "Tom Lyner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomlyner/hello-world-js.git"
+  },
+  "scripts": {
+    "security-check": "nsp check"
+  },
+  "devDependencies": {
+    "nsp": "^2.6.3"
+  }
+}
