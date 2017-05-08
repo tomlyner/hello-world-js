@@ -12,14 +12,17 @@
     "security-check": "nsp check",
     "prestart": "node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel security-check open:src",
-    "open:src": "node buildScripts/srcServer.js"
+    "open:src": "node buildScripts/srcServer.js",
+    "generate-mock-data": "babel-node buildScripts/generateMockData"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.4.0",
     "chalk": "^1.1.3",
     "express": "^4.15.2",
+    "json-schema-faker": "0.3.6",
     "npm-run-all": "^4.0.2",
     "nsp": "^2.6.3",
     "open": "0.0.5",
