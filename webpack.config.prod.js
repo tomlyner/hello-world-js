@@ -2,6 +2,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var BabiliPlugin = require('babili-webpack-plugin');
+var WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = {
   devtool: 'source-map',
@@ -13,12 +14,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor' // Specify the common bundle's name.
+        name: 'vendor'
     }),
+
+    new WebpackMd5Hash(),
 
     new HtmlWebpackPlugin({
       template: 'src/index.html',
