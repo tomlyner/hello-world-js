@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var BabiliPlugin = require('babili-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -19,15 +20,20 @@ module.exports = {
       inject: true
     }),
 
-    new webpack.LoaderOptionsPlugin({
-      debug: false,
-      minimize: true
-    })
+    new BabiliPlugin()
   ],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /\.css$/, loaders: ['style','css']}
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      }
     ]
   }
 };
