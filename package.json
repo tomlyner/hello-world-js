@@ -11,7 +11,7 @@
   "scripts": {
     "security-check": "nsp check",
     "prestart": "node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src start-mockapi",
+    "start": "npm-run-all --parallel security-check open:src start-mockapi lint:watch",
     "open:src": "node buildScripts/srcServer.js",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
@@ -20,7 +20,8 @@
     "prebuild": "npm-run-all clean-dist",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
-    "lint": "esw webpack.config.*  src  buildScripts --color"
+    "lint": "esw webpack.config.*  src  buildScripts --color",
+    "lint:watch": "npm run lint -- --watch"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
