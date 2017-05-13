@@ -4,6 +4,8 @@ var open = require('open');
 var webpack = require('webpack');
 var config = require('../webpack.config.dev');
 
+/* eslint-disable no-console */
+
 const port = 3000;
 const app = express();
 const compiler = webpack(config);

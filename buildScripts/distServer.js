@@ -3,6 +3,8 @@ var path = require('path');
 var open = require('open');
 var compression = require('compression');
 
+/* eslint-disable no-console */
+
 const port = 3000;
 const app = express();
 

@@ -1,12 +1,9 @@
 import {getUsers, deleteUser} from './api/userApi';
 
-console.log(`Here is some logging`);
-
 getUsers().then(result => {
 
   let usersBody = "";
   for (var user of result) {
-    console.log(user);
     usersBody+= `<tr>
     <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
     <td>${user.id}</td>
@@ -14,7 +11,7 @@ getUsers().then(result => {
     <td>${user.lastName}</td>
     <td>${user.email}</td>
     </tr>`;
-  };
+  }
 
   global.document.getElementById('users').innerHTML = usersBody;
 
