@@ -1,2 +1,8 @@
 # Dependency directories
 node_modules
+
+#prod build
+dist
+
+#mock db
+db.json

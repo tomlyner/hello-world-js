@@ -1,14 +1,15 @@
 var path = require('path');
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'src'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -17,6 +18,11 @@ module.exports = {
       template: 'src/index.html',
       inject: true
     }),
+
+    new webpack.LoaderOptionsPlugin({
+      debug: false,
+      minimize: true
+    })
   ],
   module: {
     loaders: [
